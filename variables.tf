@@ -46,3 +46,17 @@ variable "tier3_subnet_cidr" {     #Cidr Block for private (tier3) subnet
     default = "10.0.3.0/24"
     type = string
 }
+
+### INTERNET GATEWAY ###
+
+variable "internet_gateway_name" {      #Name for private (tier3) subnet
+    default = "Main_VPC_Internet_Gateway"
+    type = string
+}
+
+### NAT GATEWAY ###
+
+variable "nat_gateway_name" {      #Name for private (tier3) subnet
+    default = "Main_VPC_NAT_Gateway"
+    type = string
+}
