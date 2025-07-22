@@ -1,13 +1,22 @@
+resource "aws_eip" "main_eip" {
+  domain = "vpc"
+
+  tags = {
+    Name = var.elastic_ip_name
+    Provisioner = "Terraform"
+  }
+
+  depends_on = [aws_internet_gateway.main_internet_gateway]
+}
+
 resource "aws_nat_gateway" "main_nat_gateway" {
   subnet_id     = aws_subnet.tier1_subnet.id
-  connectivity_type = "private"
+  allocation_id = aws_eip.main_eip.id
 
   tags = {
     Name = var.nat_gateway_name
     Provisioner = "Terraform"
   }
 
-  # To ensure proper ordering, it is recommended to add an explicit dependency
-  # on the Internet Gateway for the VPC.
-  depends_on = [aws_internet_gateway.main_internet_gateway]
+  depends_on = [aws_eip.main_eip]
 }

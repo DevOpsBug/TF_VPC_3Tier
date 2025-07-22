@@ -9,4 +9,5 @@ tier2_subnet_name = "Tier2_Subnet_SemiPrivate"
 #tier3_subnet_name = "Tier3_Subnet_Private"
 #tier3_subnet_cidr = "10.0.3.0/24"      #Tier3 Subnet Cidr
 #internet_gateway_name = "Main_VPC_Internet_Gateway"    #Internet Gateway Name
+#elastic_ip_name = "Main_VPC_Elastic_IP"
 nat_gateway_name = "Main_NAT_Gateway"   #NAT Gateway Name

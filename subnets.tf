@@ -6,6 +6,8 @@ resource "aws_subnet" "tier1_subnet" {
     Name = var.tier1_subnet_name
     Provisioner = "Terraform"
   }
+
+  depends_on = [aws_vpc.main_vpc]
 }
 
 resource "aws_subnet" "tier2_subnet" {
@@ -16,6 +18,8 @@ resource "aws_subnet" "tier2_subnet" {
     Name = var.tier2_subnet_name
     Provisioner = "Terraform"
   }
+
+  depends_on = [aws_vpc.main_vpc]
 }
 
 resource "aws_subnet" "tier3_subnet" {
@@ -26,4 +30,6 @@ resource "aws_subnet" "tier3_subnet" {
     Name = var.tier3_subnet_name
     Provisioner = "Terraform"
   }
+
+  depends_on = [aws_vpc.main_vpc]
 }

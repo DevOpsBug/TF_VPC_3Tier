@@ -13,7 +13,7 @@ variable "vpc_cidr_block" {
 
 ### SUBNET TIER1 ###
 
-variable "tier1_subnet_name" {      #Cidr Block for public Subnet
+variable "tier1_subnet_name" {      #Name for public Subnet
     default = "Tier1_Subnet_Public"
     type = string
 }
@@ -25,7 +25,7 @@ variable "tier1_subnet_cidr" {      #Cidr Block for public Subnet
 
 ### SUBNET TIER 2 ###
 
-variable "tier2_subnet_name" {      #Cidr Block for tier2 Subnet
+variable "tier2_subnet_name" {      #Name for tier2 Subnet
     default = "Tier2_Subnet"
     type = string
 }
@@ -49,14 +49,21 @@ variable "tier3_subnet_cidr" {     #Cidr Block for private (tier3) subnet
 
 ### INTERNET GATEWAY ###
 
-variable "internet_gateway_name" {      #Name for private (tier3) subnet
+variable "internet_gateway_name" {          
     default = "Main_VPC_Internet_Gateway"
+    type = string
+}
+
+### ELASTIC IP FOR NAT GATEWAY ###
+
+variable "elastic_ip_name" {      
+    default = "Main_VPC_Elastic_IP"
     type = string
 }
 
 ### NAT GATEWAY ###
 
-variable "nat_gateway_name" {      #Name for private (tier3) subnet
+variable "nat_gateway_name" {      #
     default = "Main_VPC_NAT_Gateway"
     type = string
 }
