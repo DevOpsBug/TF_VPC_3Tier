@@ -3,7 +3,7 @@ resource "aws_subnet" "tier1_subnet" {
   cidr_block = var.tier1_subnet_cidr
 
   tags = {
-    Name = var.tier1_subnet_name
+    Name = "${var.vpc_name}_Tier1_Public_Subnet"
     Provisioner = "Terraform"
   }
 
@@ -15,7 +15,7 @@ resource "aws_subnet" "tier2_subnet" {
   cidr_block = var.tier2_subnet_cidr
 
   tags = {
-    Name = var.tier2_subnet_name
+    Name = "${var.vpc_name}_Tier2_SemiPrivate_Subnet"
     Provisioner = "Terraform"
   }
 
@@ -27,7 +27,7 @@ resource "aws_subnet" "tier3_subnet" {
   cidr_block = var.tier3_subnet_cidr
 
   tags = {
-    Name = var.tier3_subnet_name
+    Name = "${var.vpc_name}_Tier3_Private_Subnet"
     Provisioner = "Terraform"
   }
 

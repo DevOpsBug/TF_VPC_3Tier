@@ -2,8 +2,9 @@ resource "aws_eip" "main_eip" {
   domain = "vpc"
 
   tags = {
-    Name = var.elastic_ip_name
+    Name = "${var.vpc_name}_NATGW_Elastic_IP"
     Provisioner = "Terraform"
+    Description = "EIP for NAT Gateway"
   }
 
   depends_on = [aws_internet_gateway.main_internet_gateway]
@@ -14,7 +15,7 @@ resource "aws_nat_gateway" "main_nat_gateway" {
   allocation_id = aws_eip.main_eip.id
 
   tags = {
-    Name = var.nat_gateway_name
+    Name = "${var.vpc_name}_NAT_Gateway"
     Provisioner = "Terraform"
   }
 
